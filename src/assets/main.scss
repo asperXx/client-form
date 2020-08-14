@@ -1,0 +1,32 @@
+@mixin title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    label {
+        margin-left: 10px;
+        font-size: 0.8em;
+        margin-bottom: 5px;
+      }
+}
+
+@mixin selector {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+    select {
+        padding: 10px;
+        outline: none;
+        font-size: 14px;
+        border: 1px solid #bbbdc4;
+        border-radius: 3px;
+        option {
+            font-size: 14px;
+        }
+    }
+}
