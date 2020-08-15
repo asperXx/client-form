@@ -1,4 +1,4 @@
-# simon-the-game
+# client-form
 
 ## Project setup
 ```
