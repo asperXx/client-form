@@ -176,7 +176,7 @@
           <div class="passport__row">
             <!-- Тип документа -->
             <label for="document-type" :class="$v.form.documentType.$error ? 'invalid-label' : ''">Тип документа*</label>
-            <div>
+            
               <div class="passport__selectors-row">
                 <div class="passport__select">
                   <select name="document-type" id="document-type" v-model="form.documentType" :class="$v.form.documentType.$error ? 'invalid-input' : ''">
@@ -186,7 +186,7 @@
                   </select>
                 </div>
               </div>
-            </div>
+            
 
             <div class="serial-number">
               <!-- Серия -->
@@ -207,8 +207,8 @@
             <input type="text" id="passport__whom" placeholder="Кем выдан" />
 
             <!-- Дата выдачи -->
-            <label for="passport__when" :class="$v.form.documentType.$error ? 'invalid-label' : ''">Дата выдачи*</label>
-            <input type="date" id="passport__when" placeholder="Дата выдачи*" :class="$v.form.documentType.$error ? 'invalid-input' : ''"/>
+            <label for="passport__when" :class="$v.form.passportWhen.$error ? 'invalid-label' : ''">Дата выдачи*</label>
+            <input type="date" id="passport__when" placeholder="Дата выдачи*" :class="$v.form.passportWhen.$error ? 'invalid-input' : ''"/>
           </div>
         </div>
         <button type="submit" class="c-button">Создать</button>
@@ -239,7 +239,8 @@ export default {
         city: "",
         birthdate: "",
         gender: "Male",
-        documentType: "passport"
+        documentType: "passport",
+        passportWhen: ""
       },
     };
   },
@@ -265,6 +266,9 @@ export default {
         required
       },
       documentType: {
+        required
+      },
+      passportWhen: {
         required
       }
     },
@@ -292,6 +296,9 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 50px;
+@media screen and (max-width: 480px) {
+    padding: 5px;
+  }
 }
 
 .container {
@@ -302,7 +309,7 @@ export default {
 
 .create-client {
   border-radius: 5px;
-  padding: 50px;
+  padding: 35px;
   box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
   input[type="text"],
   input[type="date"] {
@@ -426,11 +433,15 @@ export default {
     :nth-child(2) {
       input {
         width: 100%;
+        
       }
     }
     :nth-child(1) {
       input {
         width: 90%;
+        @media screen and (max-width: 480px) {
+        width: 80%;
+    }
       }
     }
   }
